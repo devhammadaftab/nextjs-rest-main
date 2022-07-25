@@ -14,7 +14,11 @@ const Home: React.FC<Props> = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const { state, dispatch } = useStore();
     const { users } = state
-    const { data, error } = useSwr<UserType[]>(!state.users.length ? Endpoints.USERS : "", fetcher) // Added global state to reduce the multiple api calls
+    const { data, error } = useSwr<UserType[]>(!state.users.length ? Endpoints.USERS : "", fetcher) /* 
+        This hook capturing static User id's, I might have changed this to dynamic list using api but 
+        I haven't found an api for this. The one I found was people api which fetch the complete data of people
+        through pagination so that not fit with dropdown requirement and looks inappropriate for this case.
+    */
     useEffect(() => {
         if (data) dispatch(actions.setUsers(data))
     },[data])
@@ -35,7 +39,7 @@ const Home: React.FC<Props> = () => {
                     {users.map((user) => (
                         <Link href={{
                             pathname: "/user",
-                            query: { id: user.id }
+                            query: { id: user.id + "" }
                         }}>
                             {`User ${user.id}`}
                         </Link>
