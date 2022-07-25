@@ -1,0 +1,6 @@
+export enum ActionConstent {
+    SET_USERS = 'SET_USERS',
+    SET_SELECTED_USER = 'SET_SELECTED_USER',
+    SET_FILMS = 'SET_FILMS',
+    SET_SELECTED_FILM = 'SET_SELECTED_FILM'
+}

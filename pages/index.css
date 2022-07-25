@@ -1,0 +1,15 @@
+a {
+    display: flex;
+    padding-left: 1rem;
+    padding-bottom: 0.4rem;
+    text-decoration: none;
+    color: black;
+}
+
+.pageContainer {
+    padding-top: 2rem;
+}
+
+nav {
+    box-shadow: 1px 1px 10px 1px #888888;
+}
